@@ -15,9 +15,9 @@ export default class BaseView extends React.Component{
         return(
             <div>
                 <Header/>
-                <Footer/>
                 <Sidebar/>
                 <BaseContent/>
+                <Footer/>
 
             </div>
         )
