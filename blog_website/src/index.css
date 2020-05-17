@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'OleoBold';
+  src: local('OleoBold'), url(./Assets/Fonts/OleoScriptSwashCaps-Bold.ttf) format('truetype');
+}

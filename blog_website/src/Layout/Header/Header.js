@@ -1,49 +1,48 @@
 import React from 'react'
-import { Container, Navbar, Nav, Col, Row } from 'react-bootstrap'
-import Sunset from './../../_.jpeg'
-import './Header.scss'
+
+// import './Header.scss'
+import { Navbar, Nav, Container } from 'react-bootstrap'
+import { StyledToggle,StyledNav ,SNav,Brand} from "./HeaderStyled";
 
 export default class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
 
+            collapsed:false
+
         }
     }
+
+    Enter = ()=>{
+        this.setState({
+            collapsed : !this.state.collapsed
+        })
+    }
+
+    Exit = ()=>{
+        this.setState({
+            collapsed : !this.state.collapsed
+        })
+    }
+
     render() {
         return (
-            <div >
-                <Container fluid className="navbar navbar-expand-lg flex-row" style={{ backgroundColor: "#522d5b", height: "10em" }}>
-                    <Navbar.Brand href="#home" style={{ fontWeight: "700", color: "white", padding: "10px 15px" }}>My Random Thoughts</Navbar.Brand>
-                    <Nav className="ml-auto">
-                        <Col>
-                            <Row>
-                                <Nav.Link href="#home">Home</Nav.Link>
-                                <Nav.Link href="#features">Features</Nav.Link>
-                                <Nav.Link href="#pricing">About</Nav.Link>
-                            </Row>
-                        </Col>
-                    </Nav>
+            <StyledNav expand="lg">
+                <Container>
+                    <Brand href="#home">Random Thoughts</Brand>
+                    <StyledToggle className = {this.state.collapsed ? "fas fa-compass ": "far fa-compass"} style = {{color: "white"}}  aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse onEnter = {this.Enter} onExit ={this.Exit} id="basic-navbar-nav">
+                        <Nav style = {{paddingRight: "50px"}}className="ml-auto">
+                            <SNav href="#home">Home</SNav>
+                            <SNav href="#link">About</SNav>
+                            <SNav href="#link">Contact</SNav>
+                            <SNav href="#link">Blog</SNav>
+                        </Nav>
+
+                    </Navbar.Collapse>
                 </Container>
-
-                <Container fluid style={{ padding: "0", margin: "0" }}>
-
-                    {/* <div className="" >
-                        {/* <img src={Sunset} alt="Default_Image" style={{ height: "100%", width: "100%" }} > */}
-                    HEllo
-                            {/* </img> 
-                    </div> */}
-                    <div class="image">
-                        <img src={Sunset} alt="" />
-                        <h2><span>Some Text</span></h2></div><br />
-
-
-
-
-                </Container>
-
-            </div>
-
+            </StyledNav>
         )
     }
 
